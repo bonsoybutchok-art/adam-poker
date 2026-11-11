@@ -1,0 +1,96 @@
+{
+  "source": "code-archive (master-poker-main.zip, a Lovable TanStack Start app on Lovable Cloud)",
+  "capabilities": [
+    {
+      "capability": "code",
+      "source": "src/ (routes, views, components, poker engine, hooks, lib)",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Copied; typecheck clean, 28 tests pass, home/auth/lobby/table/admin load"
+    },
+    {
+      "capability": "schema",
+      "source": "drizzle/migrations 0000-0002 (10 tables, RPCs, triggers, RLS)",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "3 migrations applied; 12 tables + settings seeded"
+    },
+    {
+      "capability": "records",
+      "source": "old Lovable Cloud database (no export in archive)",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "Waiting on table exports from the old project's Cloud database"
+    },
+    {
+      "capability": "auth identities",
+      "source": "old Lovable Cloud auth users (no export)",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "Waiting on users export; existing players re-verify email and set new password"
+    },
+    {
+      "capability": "authorization",
+      "source": "user_roles + has_role, RLS, owner-admin in handle_new_user",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Admin approval and player-only RLS exercised"
+    },
+    {
+      "capability": "uploaded file bytes",
+      "source": "storage buckets used for avatars / payment proofs / QR images",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "Buckets recreated and upload verified; old avatars/receipts need export"
+    },
+    {
+      "capability": "bundled assets",
+      "source": "hero image + payment QR asset pointers from source project",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "Hero image and payment QR re-hosted in this project"
+    },
+    {
+      "capability": "external providers",
+      "source": "none detected (no Stripe/email/AI)",
+      "outcome": "none",
+      "status": "verified",
+      "next_action": ""
+    },
+    {
+      "capability": "public endpoints / webhooks / schedules",
+      "source": "none detected (no src/routes/api, cron-auth helper unused)",
+      "outcome": "none",
+      "status": "verified",
+      "next_action": "None in source"
+    },
+    {
+      "capability": "secrets",
+      "source": "only Lovable Cloud managed vars",
+      "outcome": "none",
+      "status": "verified",
+      "next_action": ""
+    },
+    {
+      "capability": "analytics events",
+      "source": ".lovable/events.json",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": "events.json copied"
+    },
+    {
+      "capability": "cutover",
+      "source": "old project URL / Netlify deploy",
+      "outcome": "user action",
+      "status": "pending",
+      "next_action": "Publish this project; repoint Netlify/domain"
+    },
+    {
+      "capability": "verification",
+      "source": "",
+      "outcome": "verify",
+      "status": "verified",
+      "next_action": "Sign-up bonus, recharge with receipt, admin approve (balance 170), cash table buy-in/cash-out; test data removed"
+    }
+  ]
+}

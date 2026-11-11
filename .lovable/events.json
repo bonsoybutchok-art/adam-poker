@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "events": {
+    "project.sign_up_completed": {
+      "event_schema_version": 1,
+      "description": "A new player finished the sign-up form and their account was created.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "confirmation_required"
+        ],
+        "properties": {
+          "confirmation_required": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "project.table_joined": {
+      "event_schema_version": 1,
+      "description": "A player bought in and took a seat at a cash table.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "big_blind",
+          "buy_in"
+        ],
+        "properties": {
+          "big_blind": {
+            "type": "number"
+          },
+          "buy_in": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "project.tournament_entered": {
+      "event_schema_version": 1,
+      "description": "A player joined a Sit and Go tournament.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "players"
+        ],
+        "properties": {
+          "players": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "project.wallet_request_submitted": {
+      "event_schema_version": 1,
+      "description": "A player submitted a cash-in or withdrawal request for admin approval.",
+      "privacy": {
+        "contains_pii": false,
+        "purpose": "product_analytics"
+      },
+      "properties_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "request_type",
+          "method",
+          "amount"
+        ],
+        "properties": {
+          "request_type": {
+            "type": "string",
+            "enum": [
+              "cash_in",
+              "cash_out"
+            ]
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "gcash",
+              "maya",
+              "bank"
+            ]
+          },
+          "amount": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
