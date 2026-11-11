@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import { CheckCircle2, ImagePlus, Loader as Loader2, X } from 'lucide-react';
+import { CircleCheck as CheckCircle2, ImagePlus, Loader as Loader2, X } from 'lucide-react';
 import { Modal } from '@/components/common/Modal';
 import { PaymentQrCard } from '@/components/wallet/PaymentQrCard';
 import { fetchQRCodes, submitTransactionRequest, uploadPaymentProof } from '@/lib/api';
